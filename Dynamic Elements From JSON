@@ -1,0 +1,16 @@
+const data = [
+  { type: "p", content: "Hello World" },
+  { type: "button", content: "Click Me" }
+];
+
+function renderUI(data, container) {
+  container.innerHTML = "";
+  data.forEach(item => {
+    let el = document.createElement(item.type);
+    el.textContent = item.content;
+    container.appendChild(el);
+  });
+}
+
+const root = document.getElementById("app");
+renderUI(data, root);

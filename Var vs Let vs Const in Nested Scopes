@@ -1,0 +1,11 @@
+function testScopes() {
+  if (true) {
+    var a = "var";     // function scoped
+    let b = "let";     // block scoped
+    const c = "const"; // block scoped
+  }
+  console.log(a); // ✅ works
+  console.log(b); // ❌ ReferenceError
+  console.log(c); // ❌ ReferenceError
+}
+testScopes();

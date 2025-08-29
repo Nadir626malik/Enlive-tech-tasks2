@@ -1,0 +1,27 @@
+// Large nested object
+let bigObj = {};
+for (let i = 0; i < 10000; i++) {
+  bigObj["key" + i] = { nested: { value: i } };
+}
+
+// Shallow Copy
+console.time("shallow");
+let shallow = { ...bigObj };
+console.timeEnd("shallow");
+
+// Deep Copy
+console.time("deep");
+function deepCopy(obj) {
+  if (obj === null || typeof obj !== "object") return obj;
+  let copy = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    copy[key] = deepCopy(obj[key]);
+  }
+  return copy;
+}
+let deep = deepCopy(bigObj);
+console.timeEnd("deep");
+
+//Output Example (depends on system speed)
+//shallow: 1.5ms
+//deep: 120ms

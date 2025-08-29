@@ -1,0 +1,8 @@
+let obj = {a:1};
+
+Object.seal(obj);
+obj.a = 2; // allowed
+delete obj.a; //  not allowed
+
+Object.freeze(obj);
+obj.a = 3; //  ignored

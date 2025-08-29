@@ -1,0 +1,12 @@
+function myAssign(target, ...sources) {
+  sources.forEach(src => {
+    for (let key in src) {
+      if (Object.prototype.hasOwnProperty.call(src, key)) {
+        target[key] = src[key];
+      }
+    }
+  });
+  return target;
+}
+
+console.log(myAssign({}, {a:1}, {b:2}));

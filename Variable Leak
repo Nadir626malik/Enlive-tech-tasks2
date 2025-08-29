@@ -1,0 +1,12 @@
+//Bad (leaks globally):
+function bad() {
+  leakedVar = 42; // global!
+}
+bad();
+console.log(leakedVar); // exists globally
+
+//Fixed:
+(function () {
+  let safeVar = 42;
+  console.log(safeVar);
+})();

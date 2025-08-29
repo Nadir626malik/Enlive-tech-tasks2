@@ -1,0 +1,21 @@
+function updateDOM(realNode, newNode) {
+  if (realNode.nodeType === 3 && realNode.textContent !== newNode.textContent) {
+    realNode.textContent = newNode.textContent;
+  }
+
+  if (realNode.nodeName !== newNode.nodeName) {
+    realNode.replaceWith(newNode);
+    return;
+  }
+
+  let realChildren = realNode.childNodes;
+  let newChildren = newNode.childNodes;
+
+  for (let i = 0; i < newChildren.length; i++) {
+    if (!realChildren[i]) {
+      realNode.appendChild(newChildren[i]);
+    } else {
+      updateDOM(realChildren[i], newChildren[i]);
+    }
+  }
+}

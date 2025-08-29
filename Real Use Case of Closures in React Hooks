@@ -1,0 +1,6 @@
+function useState(initial) {
+  let value = initial;
+  function setValue(newVal) { value = newVal; }
+  function getValue() { return value; }
+  return [getValue, setValue];
+}

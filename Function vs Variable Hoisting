@@ -1,0 +1,6 @@
+greet(); //  works
+function greet() { console.log("Hello"); }
+
+//  with arrow function
+sayHi(); // ReferenceError
+var sayHi = () => console.log("Hi");

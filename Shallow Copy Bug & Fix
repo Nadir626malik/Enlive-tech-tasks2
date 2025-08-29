@@ -1,0 +1,5 @@
+let original = { user: { name: "Ali" } };
+let shallow = {...original};
+shallow.user.name = "Bilal";
+
+console.log(original.user.name); // Bilal 

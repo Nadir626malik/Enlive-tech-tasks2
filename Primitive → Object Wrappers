@@ -1,0 +1,5 @@
+let str = "hello";
+let strObj = new String(str);  // primitive to object
+console.log(typeof strObj);    // object
+
+console.log(strObj.valueOf()); // "hello" (back to primitive)

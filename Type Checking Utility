@@ -1,0 +1,10 @@
+function getType(val) {
+  if (val === null) return "null";
+  if (Number.isNaN(val)) return "NaN";
+  return Object.prototype.toString.call(val).slice(8, -1).toLowerCase();
+}
+
+console.log(getType([]));     // "array"
+console.log(getType(null));   // "null"
+console.log(getType(NaN));    // "NaN"
+console.log(getType({}));     // "object"

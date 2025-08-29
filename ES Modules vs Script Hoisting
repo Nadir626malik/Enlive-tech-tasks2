@@ -1,0 +1,19 @@
+//script.js (classic mode, run with node script.js):
+greet(); //  Works (function hoisting)
+console.log(a); // undefined (var hoisted)
+
+function greet() {
+  console.log("Hello from script file!");
+}
+
+var a = 10;
+
+//module.mjs (ES Module, run with node module.mjs):
+greet(); //  ReferenceError: Cannot access 'greet' before initialization
+console.log(a); //  ReferenceError
+
+function greet() {
+  console.log("Hello from module file!");
+}
+
+let a = 10;
